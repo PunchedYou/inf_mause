@@ -1,5 +1,3 @@
-package dstrukturen;
-
 public class Queue<ContentType> {
     private class QueueNode {
 

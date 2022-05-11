@@ -1,5 +1,3 @@
-package dstrukturen;
-
 public class Stack<ContentType> {
 
     /* --------- Anfang der privaten inneren Klasse -------------- */
