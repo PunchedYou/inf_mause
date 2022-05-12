@@ -1,9 +1,9 @@
-public class Kampf {
+public class MausKampf {
     Queue<Maus> eingang = new Queue<Maus>();
     Queue<Maus> ausgang = new Queue<Maus>();
     Stack<Maus> stapel = new Stack<Maus>();
 
-    public Kampf() {
+    public MausKampf() {
 
     }
 
@@ -22,7 +22,7 @@ public class Kampf {
         }
     }
 
-    public void mausKampf() {
+    public void kampfAusfuehren() {
         while (!eingang.isEmpty() || !stapel.isEmpty()) {
             if (!eingang.isEmpty()) {
                 if (stapel.isEmpty()) {
