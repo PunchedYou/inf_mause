@@ -3,9 +3,9 @@ public class Test {
         Test t = new Test();
         t.kampfTesten();
 
-        Kampf z = new Kampf();
+        MausKampf z = new MausKampf();
         z.zufallsBelegung(5);
-        z.mausKampf();
+        z.kampfAusfuehren();
     }
 
     public void kampfTesten() {
@@ -17,8 +17,8 @@ public class Test {
             q.enqueue(m);
         }
 
-        Kampf k = new Kampf();
+        MausKampf k = new MausKampf();
         k.manuelleBelegung(q);
-        k.mausKampf();
+        k.kampfAusfuehren();
     }
 }
