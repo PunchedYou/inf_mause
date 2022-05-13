@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class MausKampf {
     Queue<Maus> eingang = new Queue<Maus>();
     Queue<Maus> ausgang = new Queue<Maus>();
@@ -42,11 +44,50 @@ public class MausKampf {
                 }
             }
         }
-
+        
         System.out.println("Reihenfolge der Mäuse am Käse: ");
         while (!ausgang.isEmpty()) {
             System.out.println(ausgang.front().getNummer() + " (" + ausgang.front().getStaerke() + ")");
             ausgang.dequeue();
+        }
+    }
+    
+    public void reihenfolgeSimulieren(int[] arr) {
+        Queue<Maus> start = new Queue<Maus>();
+        Queue<Maus> ergebnis = new Queue<Maus>();
+        Stack<Maus> stapel = new Stack<Maus>();
+        
+        for(int i : arr) {
+            Maus m = new Maus(i, 0);
+            ergebnis.enqueue(m);
+        }
+        
+        Arrays.sort(arr);
+        
+        for(int i : arr) {
+            Maus m = new Maus(i, 0);
+            start.enqueue(m);
+        }
+        
+        for(int i = 0; i < arr.length; i++) {
+            if(stapel.isEmpty) {
+                stapel.push(start.front())
+            }
+            while(stapel.top().getNummer() != ergebnis.front().getNummer()){
+                if(start.isEmpty()){
+                    System.out.println("Die Kombination ist nicht möglich!");
+                    return;
+                }
+                
+                start.front().cGewonnen();
+                
+                if(!stapel.isEmpty()) {
+                    stapel.top().cVerloren();
+                }
+                
+                stapel.push(start.front());
+                start.dequeue();
+            }
         }
     }
 }

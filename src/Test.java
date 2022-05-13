@@ -2,10 +2,13 @@ public class Test {
     public static void main(String[] args) {
         Test t = new Test();
         t.kampfTesten();
-
-        MausKampf z = new MausKampf();
-        z.zufallsBelegung(5);
-        z.kampfAusfuehren();
+        
+        MausKampf mk = new MausKampf();
+        mk.zufallsBelegung(5);
+        mk.kampfAusfuehren();
+        
+        int[] arr = {7, 6, 5 ,4 ,3, 2, 8, 9, 1};
+        mk.reihenfolgeSimulieren(arr);
     }
 
     public void kampfTesten() {
