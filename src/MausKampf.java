@@ -80,14 +80,18 @@ public class MausKampf {
                     return;
                 }
 
-                start.front().cGewonnen();
-
                 if (!stapel.isEmpty()) {
+                    start.front().cGewonnen();
                     stapel.top().cVerloren();
                 }
 
                 stapel.push(start.front());
                 start.dequeue();
+            }
+
+            if (!start.isEmpty()) {
+                stapel.top().cGewonnen();
+                start.front().cVerloren();
             }
 
             ergebnis.enqueue(stapel.top());

@@ -9,8 +9,12 @@ public class Test {
         mk.zufallsBelegung(5);
         mk.kampfAusfuehren(); // Kampf wird mit zufällligen Stärken getestet
 
-        int[] arr = { 7, 6, 5, 4, 3, 2, 8, 9, 1 };
-        mk.reihenfolgeSimulieren(arr); // Eine vorgegebene Reihenfolge wird simuliert
+        int[] arr1 = { 7, 6, 5, 4, 3, 2, 8, 9, 1 }; // Ja
+        mk.reihenfolgeSimulieren(arr1);
+        int[] arr2 = { 1, 3, 4, 6, 7, 10, 9, 11, 12, 8, 5, 2 }; // Ja
+        mk.reihenfolgeSimulieren(arr2);
+        int[] arr3 = { 4, 5, 3, 1, 2, 6 }; // Nein
+        mk.reihenfolgeSimulieren(arr3); // Eine vorgegebene Reihenfolge wird getestet/simuliert
 
         final long timeEnd = System.currentTimeMillis();
         System.out.println("Zeit des Programms: " + (timeEnd - timeStart) + "ms");
