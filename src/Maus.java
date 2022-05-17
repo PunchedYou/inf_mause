@@ -16,12 +16,12 @@ public class Maus {
     public int getStaerke() {
         return staerke;
     }
-    
-    public int getGewonnen(){
+
+    public int getGewonnen() {
         return gewonnen;
     }
-    
-    public int getVerloren(){
+
+    public int getVerloren() {
         return verloren;
     }
 
@@ -32,12 +32,12 @@ public class Maus {
     public void setStaerke(int staerke) {
         this.staerke = staerke;
     }
-    
-    public void cGewonnen() {
+
+    public void zGewonnen() {
         this.gewonnen += 1;
     }
-    
-    public void cVerloren() {
+
+    public void zVerloren() {
         this.verloren += 1;
     }
 }

@@ -5,10 +5,6 @@ public class MausKampf {
     Queue<Maus> ausgang = new Queue<Maus>();
     Stack<Maus> stapel = new Stack<Maus>();
 
-    public MausKampf() {
-
-    }
-
     public void zufallsBelegung(int anzahl) {
         for (int i = 1; i <= anzahl; i++) {
             int r = (int) (Math.random() * (10 - 1)) + 1;
@@ -53,58 +49,58 @@ public class MausKampf {
     }
 
     public void reihenfolgeSimulieren(int[] arr) {
-        Queue<Maus> start = new Queue<Maus>();
-        Queue<Maus> ergebnis = new Queue<Maus>();
-        Stack<Maus> stapel = new Stack<Maus>();
+        Queue<Maus> teingang = new Queue<Maus>();
+        Queue<Maus> tausgang = new Queue<Maus>();
+        Stack<Maus> tstapel = new Stack<Maus>();
 
         for (int i : arr) {
             Maus m = new Maus(i, 0);
-            ergebnis.enqueue(m);
+            tausgang.enqueue(m);
         }
 
         Arrays.sort(arr);
 
         for (int i : arr) {
             Maus m = new Maus(i, 0);
-            start.enqueue(m);
+            teingang.enqueue(m);
         }
 
         for (int i = 0; i < arr.length; i++) {
-            if (stapel.isEmpty()) {
-                stapel.push(start.front());
+            if (tstapel.isEmpty()) {
+                tstapel.push(teingang.front());
             }
 
-            while (stapel.top().getNummer() != ergebnis.front().getNummer()) {
-                if (start.isEmpty()) {
+            while (tstapel.top().getNummer() != tausgang.front().getNummer()) {
+                if (teingang.isEmpty()) {
                     System.out.println("Die Kombination ist nicht möglich!");
                     return;
                 }
 
-                if (!stapel.isEmpty()) {
-                    start.front().cGewonnen();
-                    stapel.top().cVerloren();
+                if (!tstapel.isEmpty()) {
+                    teingang.front().zGewonnen();
+                    tstapel.top().zVerloren();
                 }
 
-                stapel.push(start.front());
-                start.dequeue();
+                tstapel.push(teingang.front());
+                teingang.dequeue();
             }
 
-            if (!start.isEmpty()) {
-                stapel.top().cGewonnen();
-                start.front().cVerloren();
+            if (!teingang.isEmpty()) {
+                tstapel.top().zGewonnen();
+                teingang.front().zVerloren();
             }
 
-            ergebnis.enqueue(stapel.top());
-            ergebnis.dequeue();
-            stapel.pop();
+            tausgang.enqueue(tstapel.top());
+            tausgang.dequeue();
+            tstapel.pop();
         }
 
         System.out.println("Die Kombination ist möglich!");
 
-        while (!ergebnis.isEmpty()) {
-            System.out.println(ergebnis.front().getNummer() + " - Gewonnen: " + ergebnis.front().getGewonnen()
-                    + " Verloren: " + ergebnis.front().getVerloren());
-            ergebnis.dequeue();
+        while (!tausgang.isEmpty()) {
+            System.out.println(tausgang.front().getNummer() + " - Gewonnen: " + tausgang.front().getGewonnen()
+                    + " Verloren: " + tausgang.front().getVerloren());
+            tausgang.dequeue();
         }
     }
 }
