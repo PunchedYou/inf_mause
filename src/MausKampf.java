@@ -7,7 +7,7 @@ public class MausKampf {
 
     public void zufallsBelegung(int anzahl) {
         for (int i = 1; i <= anzahl; i++) {
-            int r = (int) (Math.random() * (10 - 1)) + 1;
+            int r = (int) (Math.random() * (20 - 1)) + 1;
             Maus m = new Maus(i, r);
             eingang.enqueue(m);
         }
